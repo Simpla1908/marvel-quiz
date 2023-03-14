@@ -1,9 +1,12 @@
 import React,{useState} from 'react'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../Firebase/firebaseConfig';
+import { Link,useNavigate } from 'react-router-dom';
 
 
-const Signup = () => {
+const Signup = (props) => {
+
+  const navigate=useNavigate();
 
   const data={
 
@@ -36,6 +39,9 @@ const Signup = () => {
     .then(user=>{
 
       setLoginData({...data});
+
+      navigate('/welcome');
+
     })
     .catch(error =>{
       setError(error);
@@ -104,6 +110,12 @@ const Signup = () => {
             {btn}
 
           </form>
+
+          <div className="linkContainer">
+
+            <Link className="simpleLink" to="/login">Déjà inscrit , connectez-vous !</Link>
+
+          </div>
 
 
          </div>
