@@ -1,13 +1,22 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-const Quiz = () => {
-  return (
+class Quiz extends Component {
+
+  render(){
+
+    const {pseudo}=this.props.userData;
+
+      return (
     <div>
 
-     Quiz
+     <h2>Pseudo : {pseudo}</h2>
       
     </div>
   )
+
+  }
+
 }
 
 export default Quiz
+
